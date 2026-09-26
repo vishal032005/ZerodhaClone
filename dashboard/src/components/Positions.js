@@ -8,7 +8,7 @@ const Positions = () => {
 
   useEffect(() => {
     axios
-      .get("https://zerodhaclone-backend.onrender.com/allPositions")
+      .get("https://zerodhaclone-backend-07q4.onrender.com/allPositions")
       .then((res) => {
         if (Array.isArray(res.data) && res.data.length > 0) {
           setAllPositions(res.data);

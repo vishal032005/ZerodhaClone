@@ -1,5 +1,17 @@
 const path = require("path");
 const dns = require("dns");
+const cors = require('cors');
+
+//For origins allow
+app.use(cors());
+
+//for handle the preflight Options
+app.options('*', cors());
+
+app.use(cors({
+  origin: "https://zerodhaclone-dashboard-s.netlify.app",
+  credentials: true
+}));
 
 // Set reliable DNS servers for resolving MongoDB Atlas SRV records on Windows
 try {

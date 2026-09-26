@@ -18,7 +18,7 @@ const BuyActionWindow = ({ uid }) => {
 
     setIsSubmitting(true);
     try {
-      await axios.post("https://zerodhaclone-backend.onrender.com/newOrder", {
+      await axios.post("https://zerodhaclone-backend-07q4.onrender.com/newOrder", {
         name: uid,
         qty: Number(stockQuantity),
         price: Number(stockPrice),

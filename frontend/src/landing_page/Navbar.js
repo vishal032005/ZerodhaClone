@@ -30,7 +30,7 @@ function Navbar() {
                             <a 
                                 className="btn px-3 py-1 p-5 ms-3 text-white shadow-sm" 
                                 style={{ background: "#387ed1", fontSize: "14px", fontWeight: 500, borderRadius: "3px", width: "180px" }}
-                                href="http://localhost:3001" 
+                                href="https://zerodhaclone-dashboard-s.netlify.app" 
                                 target="_blank" 
                                 rel="noreferrer"
                             >

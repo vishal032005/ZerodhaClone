@@ -27,7 +27,7 @@ function Stats() {
                         <Link to='/products' className='text-decoration-none' style={{ color: "#387ed1", fontWeight: 500 }}>
                             Explore our products &rarr;
                         </Link>
-                        <a href='http://localhost:3001' target='_blank' rel='noreferrer' className='text-decoration-none' style={{ color: "#387ed1", fontWeight: 500 }}>
+                        <a href='https://zerodhaclone-dashboard-s.netlify.app' target='_blank' rel='noreferrer' className='text-decoration-none' style={{ color: "#387ed1", fontWeight: 500 }}>
                             Try Kite demo &rarr;
                         </a>
                     </div>

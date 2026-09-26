@@ -52,7 +52,7 @@ function Signup() {
                     </form>
 
                     <div className="text-center mt-3">
-                        <a href="http://localhost:3001" className="text-decoration-none" style={{ color: "#387ed1", fontSize: "14px" }}>
+                        <a href="https://zerodhaclone-dashboard-s.netlify.app" className="text-decoration-none" style={{ color: "#387ed1", fontSize: "14px" }}>
                             Already have an account? Go to Dashboard &rarr;
                         </a>
                     </div>

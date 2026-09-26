@@ -176,7 +176,7 @@ const WatchListItem = ({ stock, onToggleChart }) => {
             <span className="price" style={{ fontSize: "13px", fontWeight: 500, color: stock.isDown ? "#eb5757" : "#4caf50" }}>
               {Number(stock.price).toFixed(2)}
             </span>
-            <WatchListActions uid={stock.name} onToggleChart={onToggleChart} />
+            <WatchListActions uid={stock.name} price={stock.price} onToggleChart={onToggleChart} />
           </div>
         ) : (
           <div className="itemInfo" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -198,12 +198,17 @@ const WatchListItem = ({ stock, onToggleChart }) => {
   );
 };
 
-const WatchListActions = ({ uid, onToggleChart }) => {
-  const { openBuyWindow } = useContext(GeneralContext);
+const WatchListActions = ({ uid, price, onToggleChart }) => {
+  const { openBuyWindow, openSellWindow } = useContext(GeneralContext);
 
   const handleBuyClick = (e) => {
     e.stopPropagation();
-    openBuyWindow(uid);
+    openBuyWindow(uid, price);
+  };
+
+  const handleSellClick = (e) => {
+    e.stopPropagation();
+    openSellWindow(uid, price);
   };
 
   return (
@@ -234,9 +239,9 @@ const WatchListActions = ({ uid, onToggleChart }) => {
       </Tooltip>
       <Tooltip title="Sell (S)" placement="top" arrow TransitionComponent={Grow}>
         <button
-          onClick={handleBuyClick}
+          onClick={handleSellClick}
           style={{
-            background: "#f57c00",
+            background: "#ff5722",
             color: "#fff",
             border: "none",
             borderRadius: "3px",

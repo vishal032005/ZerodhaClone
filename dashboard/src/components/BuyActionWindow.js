@@ -5,14 +5,17 @@ import GeneralContext from "./GeneralContext";
 
 import "./BuyActionWindow.css";
 
-const BuyActionWindow = ({ uid }) => {
+const BuyActionWindow = ({ uid, mode = "BUY", initialPrice = 0 }) => {
   const [stockQuantity, setStockQuantity] = useState(1);
-  const [stockPrice, setStockPrice] = useState(0.0);
+  const [stockPrice, setStockPrice] = useState(Number(initialPrice) || 0.0);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const { closeBuyWindow } = useContext(GeneralContext);
 
-  const handleBuyClick = async (e) => {
+  const isSell = mode === "SELL";
+  const actionColor = isSell ? "#ff5722" : "#4184f3";
+
+  const handleActionClick = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
 
@@ -22,9 +25,9 @@ const BuyActionWindow = ({ uid }) => {
         name: uid,
         qty: Number(stockQuantity),
         price: Number(stockPrice),
-        mode: "BUY",
+        mode: mode,
       });
-      alert(`Order placed successfully for ${uid}!`);
+      alert(`${mode} order placed successfully for ${uid}!`);
     } catch (err) {
       console.error("Failed to place order:", err);
       alert("Failed to place order. Make sure backend is running.");
@@ -43,6 +46,43 @@ const BuyActionWindow = ({ uid }) => {
 
   return (
     <div className="container" id="buy-window" draggable="true">
+      <div
+        className="header"
+        style={{
+          background: actionColor,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "14px 18px",
+          color: "#fff",
+        }}
+      >
+        <div>
+          <h3 style={{ margin: 0, color: "#fff", fontSize: "1rem", fontWeight: 500 }}>
+            {mode} {uid}
+          </h3>
+          <span style={{ color: "#fff", fontSize: "0.75rem", opacity: 0.9 }}>
+            NSE • ₹{Number(stockPrice || 0).toFixed(2)}
+          </span>
+        </div>
+        <button
+          type="button"
+          onClick={handleCancelClick}
+          style={{
+            background: "transparent",
+            border: "none",
+            color: "#fff",
+            fontSize: "18px",
+            cursor: "pointer",
+            fontWeight: "bold",
+            padding: "0 6px",
+          }}
+          title="Close"
+        >
+          ✕
+        </button>
+      </div>
+
       <div className="regular-order">
         <div className="inputs">
           <fieldset>
@@ -71,16 +111,20 @@ const BuyActionWindow = ({ uid }) => {
       </div>
 
       <div className="buttons">
-        <span>Margin required ₹{marginRequired}</span>
+        <span>{isSell ? "Order value" : "Margin required"} ₹{marginRequired}</span>
         <div>
           <button
             type="button"
-            className="btn btn-blue"
-            onClick={handleBuyClick}
+            className={`btn ${isSell ? "btn-orange" : "btn-blue"}`}
+            onClick={handleActionClick}
             disabled={isSubmitting}
-            style={{ cursor: "pointer", border: "none" }}
+            style={{
+              cursor: "pointer",
+              border: "none",
+              background: actionColor,
+            }}
           >
-            {isSubmitting ? "Placing..." : "Buy"}
+            {isSubmitting ? "Placing..." : isSell ? "Sell" : "Buy"}
           </button>
           <button
             type="button"

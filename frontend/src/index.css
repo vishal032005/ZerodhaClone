@@ -1,0 +1,166 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+a{
+  text-decoration: none;
+}
+
+/* p{
+  padding: 0px;
+  margin: 0px;
+} */
+
+/* Home Hero */
+.btn{
+  width: 15%;
+  font-size: larger;
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+.btn:hover{
+  background-color: black;
+}
+
+/* Home Awards */
+
+.img{
+  height: 90%;
+  width: 90%;
+}
+
+.awards-container, .home-pricing{
+  margin-left: 10%;
+}
+
+.link{
+  margin-left: 25%;
+  
+}
+
+
+.home-pr-Img{
+  height: 70%;
+  width: 70%;
+}
+
+.fs-p-iq{
+  font-size: x-small;
+  margin-left: -2rem;
+
+}
+
+.fs-p-intra{
+  font-size: x-small;
+  margin-left: -1rem;
+}
+
+
+/* Navbar */
+
+.logo{
+  width: 25%;
+}
+
+.navbar{
+  background-color: #fff !important;
+}
+
+.nav-link{
+  margin-left: 20px;
+}
+
+
+/* footer */
+
+.footer-text{
+  font-size: x-small;
+}
+.footer a{
+  line-height: 40px;
+  color: rgb(90, 87, 87);
+}
+
+.footer a:hover{
+  color: rgb(46, 158, 243);
+}
+
+
+.icon a{
+  font-size: 20px;
+  color: rgb(60, 58, 58);
+  margin-right: 30px;
+}
+
+
+
+
+
+/* about page */
+
+
+ /* teem section */
+.about-img{
+  width: 90%;
+  border-radius: 50%;
+}
+
+
+.about-img-e{
+  width: 70%;
+  border-radius: 50%;
+  margin-bottom: 20px;
+
+}
+
+.team-featured-desc{
+  padding: 15px;
+  margin-left: 80px;
+  width: 180px;
+  text-align: left;
+ 
+}
+
+
+/* ChargeExplanation */
+
+.ChargeExplanationPaira{
+     font-size: 12px;
+}
+
+
+/* Support Search */
+.form-control:focus {
+    border-color: #adb5bd;
+    box-shadow: 0 0 0 0.1rem rgba(0, 0, 0, 0.05);
+}
+.form-select:focus {
+    border-color: #adb5bd;
+    box-shadow: 0 0 0 0.1rem rgba(0, 0, 0, 0.05);
+}
+
+
+/* Support Hero */
+
+.lh{
+  line-height: 30px;
+}
+
+.my-border{
+  border-left: 5px solid orangered !important;
+  background-color: rgba(244, 234, 206, 0.856);
+}
